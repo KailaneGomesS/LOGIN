@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
@@ -42,6 +45,44 @@ public class LOGIN extends JFrame {
 	 * Create the frame.
 	 */
 	public LOGIN() {
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu Menu = new JMenu("MENU");
+		Menu.setHorizontalAlignment(SwingConstants.CENTER);
+		menuBar.add(Menu);
+		
+	
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Sobre a equipe");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sobre sEquipe= new Sobre ();
+		          sEquipe.setVisible(true);
+				
+			}
+		});
+		Menu.add(mntmNewMenuItem_2);
+		
+		JMenuItem menuSair= new JMenuItem("Sair");
+		menuSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				
+			}
+		});
+		
+		
+	
+		menuSair.setHorizontalAlignment(SwingConstants.CENTER);
+		Menu.add(menuSair);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

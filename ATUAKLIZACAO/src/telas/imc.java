@@ -46,6 +46,7 @@ public class imc extends JFrame {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.
@@ -64,23 +65,48 @@ public class imc extends JFrame {
 		menuBar.add(Menu);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Modo de Uso");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				infoIMC info= new infoIMC ();
+		          info.setVisible(true);
+			
+			}
+		});
 		Menu.add(mntmNewMenuItem_3);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Tela Inicial");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+					TelaInicial escolha= new TelaInicial ();
+			          escolha.setVisible(true);
+				
+			}
+		});
 		Menu.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Sobre a equipe");
-		Menu.add(mntmNewMenuItem_2);
-		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Sair");
-		mntmNewMenuItem.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sobre sEquipe= new Sobre ();
+		          sEquipe.setVisible(true);
+				
 			}
 		});
-		mntmNewMenuItem.setHorizontalAlignment(SwingConstants.CENTER);
-		Menu.add(mntmNewMenuItem);
+		Menu.add(mntmNewMenuItem_2);
+		
+		JMenuItem menuSair= new JMenuItem("Sair");
+		menuSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				
+			}
+		});
+		
+		
+	
+		menuSair.setHorizontalAlignment(SwingConstants.CENTER);
+		Menu.add(menuSair);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -128,11 +154,6 @@ public class imc extends JFrame {
 		resultado.setBackground(Color.WHITE);
 		resultado.setBounds(197, 226, 127, 20);
 		contentPane.add(resultado);
-		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setFont(new Font("Times New Roman", Font.BOLD, 17));
-		btnVoltar.setBounds(60, 327, 89, 23);
-		contentPane.add(btnVoltar);
 		
 		JButton btnConfirma = new JButton("Calcule");
 		btnConfirma.addActionListener(new ActionListener() {

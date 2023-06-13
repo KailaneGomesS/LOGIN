@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class Sobre extends JFrame {
+public class infoIMC extends JFrame {
 
 	private JPanel contentPane;
 
@@ -23,7 +23,7 @@ public class Sobre extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Sobre frame = new Sobre();
+					infoIMC frame = new infoIMC();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class Sobre extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Sobre() {
+	public infoIMC() {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -43,7 +43,7 @@ public class Sobre extends JFrame {
 		Menu.setHorizontalAlignment(SwingConstants.CENTER);
 		menuBar.add(Menu);
 		
-		
+
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Tela Inicial");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
@@ -56,7 +56,15 @@ public class Sobre extends JFrame {
 		});
 		Menu.add(mntmNewMenuItem_1);
 		
-		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Sobre a equipe");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sobre sEquipe= new Sobre ();
+		          sEquipe.setVisible(true);
+				
+			}
+		});
+		Menu.add(mntmNewMenuItem_2);
 		
 		JMenuItem menuSair= new JMenuItem("Sair");
 		menuSair.addActionListener(new ActionListener() {
@@ -70,11 +78,12 @@ public class Sobre extends JFrame {
 	
 		menuSair.setHorizontalAlignment(SwingConstants.CENTER);
 		Menu.add(menuSair);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 583, 472);
+		getContentPane().setLayout(null);
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
