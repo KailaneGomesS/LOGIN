@@ -3,26 +3,21 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import java.awt.Font;
 
-public class LOGIN extends JFrame {
+public class TelaInicial extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField usuario;
-	private JPasswordField senha;
 
 	/**
 	 * Launch the application.
@@ -31,7 +26,7 @@ public class LOGIN extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LOGIN frame = new LOGIN();
+					TelaInicial frame = new TelaInicial();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,8 +38,7 @@ public class LOGIN extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LOGIN() {
-		
+	public TelaInicial() {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -88,61 +82,42 @@ public class LOGIN extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+	
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Sair");
+		JButton btnNewButton = new JButton("Calculadora IAC");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				iac calculador= new iac();
+		          calculador.setVisible(true);
 			}
 		});
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton.setBounds(52, 205, 89, 23);
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 21));
+		btnNewButton.setBounds(65, 90, 287, 36);
 		contentPane.add(btnNewButton);
 		
-		JButton entrar = new JButton("Entrar");
-		entrar.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		entrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(usuario.getText().equals("teste") && senha.getText().equals("123")){
-		            JOptionPane.showMessageDialog(null, "Acesso Permitido!");
-		          TelaInicial escolha= new TelaInicial ();
-		          escolha.setVisible(true);
-		        }
-		        else{ JOptionPane.showMessageDialog(null, "Acesso Negado!");
-		        }
-				
-			}
-			
-		});
-		entrar.setBounds(270, 205, 89, 23);
-		contentPane.add(entrar);
-		
-		usuario = new JTextField();
-		usuario.setBounds(173, 85, 101, 20);
-		contentPane.add(usuario);
-		usuario.setColumns(10);
-		
-		senha = new JPasswordField();
-		senha.setBounds(173, 124, 101, 20);
-		contentPane.add(senha);
-		
-		JLabel lblNewLabel = new JLabel("Usu\u00E1rio:");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(85, 87, 67, 14);
+		JLabel lblNewLabel = new JLabel("Escolha uma Calculadora ");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 23));
+		lblNewLabel.setBounds(76, 28, 287, 36);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel("LOGIN");
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(132, 32, 122, 14);
-		contentPane.add(lblNewLabel_2);
-		
-		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSenha.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblSenha.setBounds(96, 126, 67, 14);
-		contentPane.add(lblSenha);
+		JButton btnCalculadoraImc = new JButton("Calculadora IMC");
+		btnCalculadoraImc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				imc calcIMC= new imc ();
+		          calcIMC.setVisible(true);
+			}
+		});
+		btnCalculadoraImc.setFont(new Font("Times New Roman", Font.BOLD, 21));
+		btnCalculadoraImc.setBounds(65, 138, 287, 36);
+		contentPane.add(btnCalculadoraImc);
 	}
+
 }
